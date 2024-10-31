@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DescuentosApp</string>
+    <string name="discount_label">Descuento</string>
+    <string name="total_label">Total</string>
+    <string name="discount_field">Precio</string>
+    <string name="price_field">Descuento %</string>
+    <string name="generar_button">Generar descuento</string>
+    <string name="clean_button">Limpiar</string>
+</resources>

@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">DescuentosApp</string>
+    <string name="app_name">DiscountApp</string>
+    <string name="total_label">Total</string>
+    <string name="discount_label">Discount</string>
+    <string name="price_field">Price</string>
+    <string name="discount_field">Discount %</string>
+    <string name="generar_button">Generate discount</string>
+    <string name="clean_button">Clean</string>
 </resources>

@@ -45,7 +45,7 @@ fun HomeView(viewModel: CalcularViewModel1) {
 }
 
 @Composable
-fun ContentHomeView(paddingValues: PaddingValues, viewModel: CalcularViewModel1) {
+fun ContentHomeView(paddingValues: PaddingValues, viewModel1: CalcularViewModel1) {
     Column(
         modifier = Modifier
             .padding(paddingValues)
@@ -72,7 +72,12 @@ fun ContentHomeView(paddingValues: PaddingValues, viewModel: CalcularViewModel1)
         MainTextField(value = descuento, onValueChange = { descuento = it }, label = "Descuento %")
         SpaceH(10.dp)
         MainButton(text = "Generar descuento") {
-
+            val result = viewModel1.calcular(precio, descuento)
+            showAlert = result.second.second
+            if (!showAlert){
+                precioDescuento = result.first
+                totalDescuento = result.second.first
+            }
         }
         SpaceH()
         MainButton(text = "Limpiar", color = Color.Red) {
