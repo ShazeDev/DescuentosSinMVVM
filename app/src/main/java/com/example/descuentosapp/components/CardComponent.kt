@@ -17,17 +17,19 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun TwoCards(title1: String, number1: Double, title2: String, number2: Double){
+fun TwoCards(title1: String, number1: String, title2: String, number2: String){
     Row(modifier = Modifier.fillMaxWidth(),
     horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-        MainCard(title = title1, number = number1,
+        MainCard(
+            title = title1, number = number1,
         modifier = Modifier
             .padding(start = 30.dp)
             .weight(1f)
             )
         SpaceW(10.dp)
-        MainCard(title = title2, number = number2,
+        MainCard(
+            title = title2, number = number2,
             modifier = Modifier
                 .padding(end = 30.dp)
                 .weight(1f)
@@ -37,7 +39,7 @@ fun TwoCards(title1: String, number1: Double, title2: String, number2: Double){
 
 
 @Composable
-fun MainCard(title: String, number: Double, modifier: Modifier = Modifier){
+fun MainCard(title: String, number: String, modifier: Modifier = Modifier){
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
