@@ -28,11 +28,12 @@ import com.example.descuentosapp.components.SpaceH
 import com.example.descuentosapp.components.TwoCards
 import com.example.descuentosapp.viewModels.CalcularViewModel1
 import com.example.descuentosapp.viewModels.CalcularViewModel2
+import com.example.descuentosapp.viewModels.CalcularViewModel3
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeView(viewModel2: CalcularViewModel2) {
+fun HomeView(viewModel3: CalcularViewModel3) {
     Scaffold(topBar = {
         CenterAlignedTopAppBar(
             title = { Text(text = "App descuentos", color = Color.White) },
@@ -41,12 +42,13 @@ fun HomeView(viewModel2: CalcularViewModel2) {
             )
         )
     }) {
-        ContentHomeView(it, viewModel2)
+        ContentHomeView(it, viewModel3)
     }
 }
 
 @Composable
-fun ContentHomeView(paddingValues: PaddingValues, viewModel2: CalcularViewModel2) {
+fun ContentHomeView(paddingValues: PaddingValues, viewModel3: CalcularViewModel3) {
+    val state = viewModel3.state
     Column(
         modifier = Modifier
             .padding(paddingValues)
@@ -57,38 +59,38 @@ fun ContentHomeView(paddingValues: PaddingValues, viewModel2: CalcularViewModel2
     ) {
         TwoCards(
             title1 = "Total",
-            number1 = viewModel2.totalDescuento,
+            number1 = state.totalDescuento,
             title2 = "Descuento",
-            number2 = viewModel2.precioDescuento
+            number2 = state.precioDescuento
         )
 
         MainTextField(
-            value = viewModel2.precio,
-            onValueChange = { viewModel2.onValue("precio", it) },
+            value = state.precio,
+            onValueChange = { viewModel3.onValue("precio", it) },
             label = "Precio"
         )
         SpaceH()
         MainTextField(
-            value = viewModel2.descuento,
-            onValueChange = { viewModel2.onValue("descuento", it) },
+            value = state.descuento,
+            onValueChange = { viewModel3.onValue("descuento", it) },
             label = "Descuento %"
         )
         SpaceH(10.dp)
         MainButton(text = "Generar descuento") {
-            viewModel2.calcular()
+            viewModel3.calcular()
 
         }
         SpaceH()
         MainButton(text = "Limpiar", color = Color.Red) {
-            viewModel2.limpiar()
+            viewModel3.limpiar()
         }
     }
 
-    if (viewModel2.showAlert) {
+    if (state.showAlert) {
         Alert(title = "Alerta",
             message = "Escribe el precio y descuento",
             confirmText = "Aceptar",
-            onConfirmClick = { viewModel2.cancelarAletar() }) { }
+            onConfirmClick = { viewModel3.cancelarAletar() }) { }
     }
 
 }

@@ -12,13 +12,14 @@ import androidx.lifecycle.ViewModel
 import com.example.descuentosapp.ui.theme.DescuentosAppTheme
 import com.example.descuentosapp.viewModels.CalcularViewModel1
 import com.example.descuentosapp.viewModels.CalcularViewModel2
+import com.example.descuentosapp.viewModels.CalcularViewModel3
 import com.example.descuentosapp.views.HomeView
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel2: CalcularViewModel2 by viewModels()
+        val viewModel3: CalcularViewModel3 by viewModels()
         setContent {
             DescuentosAppTheme {
                 // A surface container using the 'background' color from the theme
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeView(viewModel2);
+                    HomeView(viewModel3);
                 }
             }
         }
